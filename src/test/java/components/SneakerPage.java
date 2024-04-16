@@ -12,7 +12,6 @@ public class SneakerPage {
             setBrandSelection = $(".filter__list li"),
             setSizeSneaker = $$(".dropdown-filter").get(7);
 
-
     public SneakerPage openPage() {
         open("https://www.wildberries.ru/");
         sleep(2000);
