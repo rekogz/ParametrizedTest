@@ -4,10 +4,7 @@ import components.ConfigurationBase;
 import components.SneakerPage;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.Arguments;
-import org.junit.jupiter.params.provider.CsvFileSource;
-import org.junit.jupiter.params.provider.CsvSource;
-import org.junit.jupiter.params.provider.MethodSource;
+import org.junit.jupiter.params.provider.*;
 
 import java.util.stream.Stream;
 
@@ -48,5 +45,13 @@ public class SearchSneakerTest extends ConfigurationBase {
         sneakerPage.openPage()
                 .brandSelection(selectBrand)
                 .sizeSelection(sizeSneaker);
+    }
+
+    @Tag("SMOKE")
+    @ValueSource(strings = {"Reebok", "Baden"})
+    @ParameterizedTest(name = "Поиск кроссовок бренда {0}")
+    void SearchSneakersValueSource(String selectBrand) {
+        sneakerPage.openPage()
+                .brandSelection(selectBrand);
     }
 }
